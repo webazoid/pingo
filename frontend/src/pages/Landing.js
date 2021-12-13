@@ -5,10 +5,27 @@ import {useNavigate} from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Branding from "../components/branding/branding";
 import Button from "../components/button/button";
+import {useState} from 'react';
 
 
-const Landing = ({ clientId }) =>{
-    const createGame = () => {};
+const Landing = () =>{
+
+  const [input, setInput] = useState(false);
+
+  const Box = () =>(
+    <div className="content-2">
+    <input className="input" type="text" name="text" />
+    <button className="submit-button" onClick={redirect}> <ArrowForwardIcon/> </button>
+    </div> 
+
+
+  )
+
+  const onclick = () =>{
+    setInput(true);
+  }
+  
+
 
   //   const [gameId, setGameId] = useState("");
 
@@ -25,23 +42,29 @@ const Landing = ({ clientId }) =>{
         <Button
           text="Create"
           click={redirect}
+          
         />
-        <Button
+           <Button
           text="Join"
-          click={redirect}
+          click={onclick}
         />
+           {input ? <Box /> : null}
+           
+     
+     
+        </div>
         {/* <button className="create-button" onClick={redirect} > Create</button>
         <button className="join-button" onClick={redirect}> Join </button> */}
-         </div>
+        
 
-        <div className="content-2">
-        <input className="input" type="text" name="text" />
-        <button className="submit-button"> <ArrowForwardIcon/> </button>
-        </div>
+
+     
+         
       
         
         </>
     )
+   
 
 
 
